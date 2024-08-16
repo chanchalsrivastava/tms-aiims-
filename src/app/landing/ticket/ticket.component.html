@@ -1,0 +1,175 @@
+<div class="row content" *ngIf="!showSuccessModal">
+  <div class="col-md-6 grid-margin stretch-card">
+    <div class="card-body">
+      <div class="login_form">
+        <form class="forms-sample" [formGroup]="empCode">
+          <br />
+          <img src="../../assets/image/Nlk7XXUg.png" class="image">
+          <h2 class="formtitle">Raise Ticket
+          </h2>
+          <br />
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-6">
+                <label class="form-label">Employee Code <i class="text-danger">*</i></label>
+
+              </div>
+              <div class="col-md-6">
+
+                <input type="text" class="form-control" formControlName="employeeId" name="empCode">
+                <div
+                  *ngIf="empCode.get('employeeId')?.invalid && (empCode.get('employeeId')?.dirty || empCode.get('employeeId')?.touched)">
+                  <small style="color: red;" *ngIf="empCode.get('employeeId')?.errors?.['required']">This field is
+                    required</small>
+                  <small style="color: red;" *ngIf="empCode.get('employeeId')?.errors?.['pattern']">Please enter in
+                    Format 'a123456'</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" *ngIf="!employeeData">
+              <div class="col-md-8"></div>
+              <div class="col-md-2">
+                <button type="button" style="margin-bottom: 2rem;" class="btn btn-info" (click)="sendOTP()">Send OTP</button>
+                
+              </div>
+            </div>
+          </div>
+        </form>
+        <ng-container *ngIf="employeeData">
+          <form class="forms-sample" [formGroup]="empDetail">
+            <div class="row">
+              <div class="col-md-6">
+                <label class="form-label">Employee Name <i class="text-danger">*</i></label>
+              </div>
+              <div class="col-md-6">
+                <span>{{employeeAllDetails.fullName}}</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label class="form-label"> Email ID <i class="text-danger">*</i></label>
+              </div>
+              <div class="col-md-6">
+                <span>{{employeeAllDetails.email}}</span>
+
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-6">
+                  <label class="form-label">Contact Number <i class="text-danger">*</i></label>
+                </div>
+                <div class="col-md-6">
+                  <span>{{employeeAllDetails.contactNo}}</span>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="row">
+
+                <div class="col-md-6">
+                  <label class="form-label">OTP send to given number <i class="text-danger">*</i></label>
+                </div>
+                <div class="col-md-6">
+
+                  <input type="text" class="form-control" formControlName="OTP" name="OTP">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="form_department" class="form-label">Department<i class="text-danger">*</i></label>
+
+                </div>
+                <div class="col-md-6">
+                  <select id="form_department" (change)="departmentSelected($event)" name="department"
+                    class="form-control" formControlName="departmentId" required
+                    [disabled]="isOtpSubmitted || !isFormEnabled">
+                    <option value="" selected disabled>--Select Your Department--</option>
+                    <option *ngFor="let department of departments" [value]="department.id">{{ department.name }}
+                    </option>
+                  </select>
+                </div>
+
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="form_category" class="form-label">Category<i class="text-danger">*</i></label>
+                </div>
+                <div class="col-md-6">
+
+                  <select id="form_category" name="category" class="form-control" formControlName="categoryId" required
+                    [disabled]="isOtpSubmitted || !isFormEnabled">
+                    <option value="" selected disabled>--Select Your Category--</option>
+                    <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+                  </select>
+                </div>
+
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 col-md-12">
+                <div class="form-group">
+                  <label id="newGrievanceDescription">Enter your concern in brief <i class="text-danger">*</i></label>
+                  <textarea rows="3" formControlName="concern"
+                    class="form-control newGrievanceRequiredField ng-pristine ng-untouched ng-valid ng-empty"
+                    custom-text="" ng-model="newGrievance.description" id="newGrievanceDescription"
+                    placeholder="Enter your concern in brief" [disabled]="isOtpSubmitted || !isFormEnabled"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="myfile1" class="form-label">Image 1:<i class="text-danger">*</i></label>
+                  <input type="file" (change)="handleFileInput($event, 'image1')" formControlName="image1"
+                    name="image1">
+                  <!-- [disabled]="isOtpSubmitted || !isFormEnabled"> -->
+                  <img *ngIf="image1Base64" [src]="image1Base64" alt="Image 1">
+                </div>
+                <div class="col-md-6">
+                  <label for="myfile2" class="form-label">Image 2:<i class="text-danger">*</i></label>
+                  <input type="file" (change)="handleFileInput($event, 'image2')" formControlName="image2"
+                    name="image2">
+                  <!-- [disabled]="isOtpSubmitted || !isFormEnabled"> -->
+                  <img *ngIf="image2Base64" [src]="image2Base64" alt="Image 2">
+                </div>
+              </div>
+            </div>
+            <br />
+
+            <button style="margin: 2rem;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+            (click)="onSubmit()">Submit</button>
+
+          </form>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="margin-top: 500px;">
+      <div class="modal-header">
+        <img src="../../../assets/image/Nlk7XXUg.png" id="exampleModalLabel" width="50px" height="50px"
+        style="margin-left: 45%;">
+        <button type="button" class="btn-ok" data-bs-dismiss="modal" aria-label="Close" (click)="ok()">OK</button>
+      </div>
+      <div class="modal-body">
+        <h2 style="text-align: center;">Grievance ID</h2>
+        <h1 style="text-align: center; color: brown;">{{refNo}}</h1>
+        <small style="margin-left: 30%; display: flex; font-size: 12px;">Your Ticket has been submitted</small>
+      </div>
+    </div>
+  </div>
+</div>

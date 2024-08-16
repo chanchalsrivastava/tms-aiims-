@@ -1,0 +1,113 @@
+.nav-link {
+    color: brown;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.bg-cover {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image {
+    height: 80px;
+    width: 80px;
+    margin-left: 42%;
+}
+.btn-info
+{
+    margin-top: 30px;
+}
+
+.form-control1 {
+    width: 500px;
+    margin-left: 5%;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    margin-top: 10px;
+}
+
+.login_form {
+    background-color: white;
+    height: auto;
+    padding-left: 30px;
+    padding-top: 5px;
+    padding-right: 20px;
+    margin-top: 10px;
+    border-radius: 20px;
+
+}
+
+.formtitle {
+    text-align: center;
+    color: brown;
+    font-size: 40px;
+}
+
+.form-label {
+    margin-left: 2%;
+    font-weight: 500;
+}
+
+.btn-success {
+    background-color: blue;
+    width: 100px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 35%;
+}
+
+@media screen and (max-width:1020px) and (min-width:800px) {
+
+    .login_form {
+        background-color: white;
+        height: auto;
+        padding-left: 30px;
+        padding-top: 5px;
+        padding-right: 20px;
+        margin-top: 10px;
+    }
+
+}
+
+@media screen and (max-width:800px) {
+
+    .login_form {
+        background-color: white;
+        height: auto;
+        padding-left: 30px;
+        padding-top: 5px;
+        padding-right: 20px;
+        margin-top: 10px;
+    }
+
+}
+
+@media screen and (max-width:770px) {
+    .login_form {
+        background-color: white;
+        height: 1000px;
+        padding-left: 30px;
+        padding-top: 5px;
+        padding-right: 20px;
+        margin-top: 10px;
+        border-radius: 10px;
+    }
+
+    .image {
+        height: 60px;
+        width: 60px;
+        margin-left: 35%;
+    }
+}

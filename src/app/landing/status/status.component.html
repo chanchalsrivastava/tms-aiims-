@@ -1,0 +1,65 @@
+<div class="row content" *ngIf="!modelStatus">
+  <div class="col-md-6 grid-margin stretch-card">
+    <div class="card-body">
+      <div class="login_form">
+        <form class="forms-sample" [formGroup]="statusForm">
+          <img src="../../assets/image/Nlk7XXUg.png" class="image">
+          <h2 class="form_title">Update Status</h2>
+          <div class="form-group">
+            <label for="form_name" class="form-label">Contact No./Employee Code or Reference No:</label>
+            <input formControlName="employeeId" type="text" class="form-control" placeholder="Enter Phone No or Code"
+              required>
+            <div
+              *ngIf="statusForm.get('employeeId')?.invalid && (statusForm.get('employeeId')?.dirty || statusForm.get('employeeId')?.touched)">
+              <small style="color: red;" *ngIf="statusForm.get('employeeId')?.errors?.['required']">This field is
+                required</small>
+              <small style="color: red;" *ngIf="statusForm.get('employeeId')?.errors?.['pattern']">Please enter in
+                Format 'a123456'</small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="form_name" class="form-label">Reference No:</label>
+            <input formControlName="grievanceRef" type="text" class="form-control" placeholder="Enter Code"
+              [disabled]="otpSent" required>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <button *ngIf="!otpInput" class="btn btn-success" (click)="GetOTP()">Get OTP</button>
+            </div>
+          </div>
+          <br />
+          <div class="form-group" *ngIf="otpInput">
+            <div class="row">
+              <div class="col-md-6">
+                <label class="form-label">OTP <i class="text-danger">*</i></label>
+                <input type="text" class="form-control" formControlName="OTP" name="OTP">
+              </div>
+              <div class="col-md-6" style="margin-top: 30px;">
+                <button style="margin-bottom: 2rem;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                  (click)="dataSubmit()">Submit</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+ <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <img src="../../../assets/image/Nlk7XXUg.png" id="exampleModalLabel" width="50px" height="50px"
+        style="margin-left: 45%;">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close" (click)="ok()">Ok</button>
+      </div>
+      <div class="modal-body">
+        <h2 style="text-align: center;">Status</h2>
+        <h1 style="text-align: center; color: brown;">{{getStatus}}</h1>
+      </div>
+    </div>
+  </div>
+</div> 

@@ -1,0 +1,166 @@
+.nav-link {
+    color: brown;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.btn[_ngcontent-ng-c1159997151] {
+    background-color: #0056b3;
+}
+.bg-cover {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image {
+    height: 80px;
+    width: 80px;
+    margin-left: 42%;
+  }
+.login_form {
+    background-color: white;
+    padding-left: 30px;
+    padding-top: 30px;
+    padding-right: 20px;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 20px;
+    width: 400px;
+    margin-left: 17%;
+}
+.form_title{
+    font-weight: bold;
+    margin-bottom: 1em;
+    font-size: 35px;
+    text-align: center;
+    color: brown;
+  }
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    margin-top: 10px;
+}
+
+.btn-send {
+    font-weight: 300;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    height: 50px;
+    width: 150px;
+}
+
+.btn {
+    border: none;
+    outline: none;
+    padding: 10px 16px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+.btn-send {
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    padding: 1em 2em;
+    outline: none;
+    border: none;
+    background-color: rgb(28, 164, 248);
+    color: #fff;
+    font-size: 1em;
+    border-radius: .5em;
+    cursor: pointer;
+    transition: .4s;
+
+}
+
+.active,
+.btn:hover {
+    background-color: #666;
+    color: white;
+}
+
+.btn .active {
+    background-color: #0056b3;
+    color: wheat;
+}
+
+
+
+.form-label {
+    margin-left: 2%;
+    font-weight: 500;
+}
+
+@media only screen and (max-width:600px) {
+    .content {
+        max-width: 90%;
+        margin-left: 2%;
+        width: 400px;
+    }
+
+    .login_form {
+        background-color: white;
+        padding-left: 30px;
+        padding-top: 30px;
+        padding-right: 20px;
+        height: auto;
+        margin-top: 20px;
+        border-radius: 20px;
+    }
+
+    .form-label {
+        margin-left: 5%;
+        font-weight: 500;
+    }
+
+}
+
+@media only screen and (max-width:500px) {
+    .nav-tabs {
+        margin-left: 35%;
+        padding-top: 2%;
+        margin-top: 10%;
+        border-bottom: none;
+    }
+
+    .content {
+        max-width: 90%;
+        margin-left: 2%;
+        width: 300px;
+    }
+
+    .login_form{
+        background-color: white;
+        padding-left: 20px;
+        padding-top: 30px;
+        padding-right: 20px;
+        height: auto;
+        margin-top: 20px;
+        border-radius: 20px;
+        margin-left: 5%;
+        width: 300px;
+      }
+
+    .form-control1 {
+        width: 100px;
+        margin-left: 5%;
+
+    }
+
+    .formtitle {
+        text-align: center;
+        color: brown;
+        font-size: 20px;
+    }
+
+    .image {
+        width: 50px;
+        height: 50px;
+        margin-left: 40%;
+    }
+}

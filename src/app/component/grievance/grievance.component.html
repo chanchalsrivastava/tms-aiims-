@@ -1,0 +1,101 @@
+<div _ngcontent-ng-c1931638237="" class="about-banner">
+  <div _ngcontent-ng-c1931638237="" class="container banner-container">
+    <h1 _ngcontent-ng-c1931638237="">User Home</h1>
+  </div>
+</div>
+<div class="has-bg-img bg-blend-screen ">
+    <div class="bg-img bg-cover">
+
+        <ul class="nav nav-tabs" role="tablist" style="margin-top: 80px;">
+          <li class="nav-item" role="presentation">
+            <a class="nav-link " id="simple-tab-0" data-bs-toggle="tab" routerLink="/user"  role="tab" aria-controls="simple-tabpanel-0" aria-selected="true">New</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="simple-tab-1" data-bs-toggle="tab"  role="tab" routerLink="/active" aria-controls="simple-tabpanel-1" aria-selected="false">Active</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="simple-tab-2" data-bs-toggle="tab"  role="tab" routerLink="/closed" aria-controls="simple-tabpanel-2" aria-selected="false">Closed</a>
+          </li>
+        </ul>
+        <br/>
+        <br/>
+        
+        <div class="container" style="margin-top: 50px;">  
+            <div class="table-responsive">  
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Sr.No.</th>
+                        <th>Ref.No</th>
+                        <th>Department</th>
+                        <th>Categories</th>
+                        <th>Concern</th>
+                        <th>Status</th>
+                        <th>Registered</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let grievance of allActiveData; let i = index">
+                        <td>{{ i + 1 }}</td>
+                        <td>{{ grievance.refNo }}</td>
+                        <td>{{ grievance.department.name }}</td>
+                        <td>{{ grievance.category.name }}</td>
+                        <td>{{ grievance.concern }}</td>
+                        <td>{{ grievance.userRaisedBy.status }}</td>
+                        <td>{{ grievance.userRaisedBy.registeredOn }}</td>
+                        <td>
+                          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="editEmployee(grievance)">
+                             Edit
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>  
+        </div>  
+        </div>
+        </div>
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+       
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="empDetail">
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Ref.No</label>
+            <input type="text" formControlName="RefNo" class="form-control" >
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Department</label>
+            <input type="text" formControlName="department.name" class="form-control" >
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Categories</label>
+            <input type="text" class="form-control" formControlName="category.name" >
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Concern</label>
+            <input type="text" class="form-control" formControlName="concern" >
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Status</label>
+            <input type="text" class="form-control" formControlName="status" >
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Registered</label>
+            <input type="text" class="form-control" formControlName="registeredOn" >
+          </div>
+          <button type="submit" class="btn btn-primary" (click)="updateEmployee()" >Update</button>
+        </form>
+      </div>
+     
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="design" style="float: right; background-color: rgb(244, 252, 250) !important;" routerLinkActive="active-link" >
+  <ul class="nav nav-tabs" role="tablist" >
+    <li class="nav-item" role="presentation">
+      <a  class="nav-link" routerLink="/ticket" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+        true}">Ticket</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="disabled-tab-1" (click)="onLogin()" *ngIf="!isLoggedIn" routerLink="./login"  data-bs-toggle="tab" role="tab" aria-controls="disabled-tabpanel-1" aria-selected="false">Login</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link " id="disabled-tab-2" routerLink="./status" data-bs-toggle="tab"  role="tab" aria-controls="disabled-tabpanel-2" aria-selected="false">Status</a>
+    </li>
+  </ul>
+</div>
+  <div class="tab-content pt-5" id="tab-content">
+    <div class="tab-pane active" id="disabled-tabpanel-0" role="tabpanel" aria-labelledby="disabled-tab-0"></div>
+    <div class="tab-pane" id="disabled-tabpanel-1" role="tabpanel" aria-labelledby="disabled-tab-1"></div>
+    <div class="tab-pane" id="disabled-tabpanel-2" role="tabpanel" aria-labelledby="disabled-tab-2"></div>
+  </div>
+<div class="image">
+  <div class="overlay">
+     <div class="loading-container">
+      
+      <router-outlet></router-outlet>
+    </div> 
+  </div>
+</div>

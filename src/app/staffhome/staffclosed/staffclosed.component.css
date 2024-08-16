@@ -1,0 +1,25 @@
+.about-banner[_ngcontent-ng-c1931638237] {
+    background-image: url(../../../assets/image/img1.jpg);
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-size: cover;
+}
+.container[_ngcontent-ng-c1931638237] {
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 1230px;
+    margin: auto;
+    padding: 0 15px;
+    overflow: hidden;
+}
+.banner-container[_ngcontent-ng-c1931638237] h1[_ngcontent-ng-c1931638237] {
+    color: #bd2f2f;
+    text-align: center;
+    font-family: Mesmerize;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 27.047px;
+    text-transform: uppercase;
+    margin: 0;
+}
